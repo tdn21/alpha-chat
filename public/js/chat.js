@@ -6,7 +6,6 @@ const $messageFormInput = document.querySelector('input')
 const $messageFormButton = document.querySelector('button')
 const $sendLocationButton = document.querySelector('#send-location')
 const $messages = document.querySelector('#messages')
-const $locationMessages = document.querySelector('#locationMessages')
 
 //Templates
 const messageTemplate = document.querySelector('#message-template').innerHTML
@@ -30,6 +29,7 @@ $messageForm.addEventListener('submit', (e) => {
     })
 })
 
+//Message socket
 socket.on('message', ({ text, createdAt }) => {
     const html = Mustache.render(messageTemplate, {
         message : text,
@@ -38,14 +38,16 @@ socket.on('message', ({ text, createdAt }) => {
     $messages.insertAdjacentHTML('beforeend', html)
 })
 
+//Location message socket
 socket.on('locationMessage', ({ url, createdAt }) => {
         const html = Mustache.render(locationMessageTemplate, {
             url,
             createdAt : moment(createdAt).format('h:mm a')
         })
-        $locationMessages.insertAdjacentHTML('beforeend', html)
+        $messages.insertAdjacentHTML('beforeend', html)
     })
 
+//Send location to server
 $sendLocationButton.addEventListener('click', () =>{
     if(!navigator.geolocation) {
         return alert('Geolocation is not supported by your browser.')
