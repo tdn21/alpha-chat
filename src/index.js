@@ -16,8 +16,6 @@ const publicDirPath = path.join(__dirname, '../public')
 app.use(express.static(publicDirPath))
 
 io.on('connection', (socket) => {
-    console.log('a new socket connection')
-
     socket.on('join', ({ username, room }, callback) => {
         const { error, user} = addUser({ id: socket.id, username, room})
         if(error) {

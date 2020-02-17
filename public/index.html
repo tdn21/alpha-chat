@@ -3,20 +3,37 @@
     <head>
         <title>Alpha Chat</title>
         <link rel="icon" href="/img/favicon.png">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
         <link rel="stylesheet" href="/css/styles.min.css">
     </head>
     <body>
-        <div class="centered-form">
-            <div class="centered-form__box">
-                <h1>Join</h1>
-                <form action="/chat.html">
-                    <label for="">Display name</label>
-                    <input type="text" name="username" placeholder="Display name" required>
-                    <label for="">Room</label>
-                    <input type="text" name="room" placeholder="Room" required>
-                    <button>Join</button>
-                </form>
+        <div class="background-img">
+            <div class="centered-form">
+                <div class="centered-form__box">
+                    <h1>Alpha Chat</h1>
+                    <form action="/chat.html">
+                        <label for="">Display name</label>
+                        <input type="text" name="username" placeholder="Display name" required>
+                        <label for="">Room</label>
+                        <input type="text" name="room" placeholder="Room" required>
+                        <button>Join</button>
+                    </form>
+                </div>
             </div>
-        </div>     
+
+        <canvas class="background"></canvas>
+        </div>
+        
+        
+        <script src=" https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
+        <script>
+            window.onload = function() {
+                Particles.init({
+                    selector: '.background',
+                    connectParticles : true, 
+                    color : "#ffffff",
+                })
+            }
+        </script>
     </body>
 </html>

@@ -17,11 +17,11 @@ input {
 body {
     line-height: 1.4;
     color: #333333;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Lato, Helvetica, Arial, sans-serif;
 }
 
 h1 {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 label {
@@ -58,24 +58,32 @@ button:disabled {
 
 /* Join Page Styles */
 
+.background-img {
+    background: url(https://marcbruederlin.github.io/particles.js/img/background.jpg);
+    background-size: cover;
+}
+
 .centered-form {
-    background: #333744;
+    /* background: #333744; */
     width: 100vw;
     height: 100vh;   
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
 .centered-form__box {
-    box-shadow: 0px 0px 17px 1px #1D1F26;
+    box-shadow: 20px 20px 20px 5px #1D1F26;
     background: #F7F7FA;
     padding: 24px;
-    width: 250px;
+    width: 350px;
+    z-index: 10;
 }
 
 .centered-form button {
     width: 100%;
+    margin : 20px 0;
 }
 
 .centered-form input {
@@ -83,7 +91,15 @@ button:disabled {
     width: 100%;
 }
 
-/* Chat Page Layout */
+.background {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  /* Chat Page Layout */
 
 .chat {
     display: flex;
@@ -100,6 +116,7 @@ button:disabled {
 /* Chat styles */
 
 .chat__main {
+    background-color: #DEF2F1;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
